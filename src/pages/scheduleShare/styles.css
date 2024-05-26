@@ -1,0 +1,27 @@
+body {
+    -webkit-user-select: none; /* Disable text selection on iOS Safari */
+    -ms-user-select: none; /* Disable text selection on Internet Explorer */
+    user-select: none; /* Disable text selection on modern browsers */
+    -webkit-tap-highlight-color: transparent; /* Disable tap highlight on mobile */
+}
+
+#custom-button {
+    width: 188px;
+    text-align: center;
+    height: 36px;
+    background: #9D34DA;
+    color: white;
+    text-transform: uppercase;
+    font-weight: 700;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+}
+
+#custom-button:active {
+    transform: scale(0.95);
+}
