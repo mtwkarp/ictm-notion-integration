@@ -7,38 +7,34 @@
     <title>Share schedule button</title>
 </head>
 <body>
-<button id="custom-button">Оновити свій графік</button>
-<p id="explanation-text"></p>
+<div class="button-container">
+    <button id="custom-button">Оновити свій графік</button>
+</div>
 </body>
 <script>
     document.addEventListener('DOMContentLoaded', () => {
         const button = document.getElementById('custom-button');
 
         button.addEventListener('click', () => {
-            // onCustomButtonClick();
-            showReferrer();
+            console.log('{USER_ID}')
+            onCustomButtonClick();
         })
-
-        function showReferrer() {
-            console.log(document.referrer)
-            document.getElementById('explanation-text').innerHTML = document.referrer
-        }
 
         function onCustomButtonClick() {
             sendRequestToNotion();
         }
 
         function sendRequestToNotion() {
-            fetch('', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ key: 'value' })
-            })
-                .then(response => response.json())
-                .then(data => console.log(data))
-                .catch(error => console.error('Error:', error));
+            // fetch('', {
+                // method: 'POST',
+            //     headers: {
+            //         'Content-Type': 'application/json'
+            //     },
+            //     body: JSON.stringify({ key: 'value' })
+            // })
+            //     .then(response => response.json())
+            //     .then(data => console.log(data))
+            //     .catch(error => console.error('Error:', error));
         }
     })
 </script>
@@ -63,9 +59,6 @@
         border-radius: 5px;
         cursor: pointer;
         transition: background-color 0.3s ease, transform 0.1s ease;
-        position: absolute;
-        left: 50%;
-        top: 50%;
     }
 
     #custom-button:active {
