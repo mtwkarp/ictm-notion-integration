@@ -1,4 +1,4 @@
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -8,14 +8,21 @@
 </head>
 <body>
 <button id="custom-button">Оновити свій графік</button>
+<p id="explanation-text"></p>
 </body>
 <script>
     document.addEventListener('DOMContentLoaded', () => {
         const button = document.getElementById('custom-button');
 
-        button.addEventListener('click', (e) => {
-            onCustomButtonClick();
+        button.addEventListener('click', () => {
+            // onCustomButtonClick();
+            showReferrer();
         })
+
+        function showReferrer() {
+            console.log(document.referrer)
+            document.getElementById('explanation-text').innerHTML = document.referrer
+        }
 
         function onCustomButtonClick() {
             sendRequestToNotion();
