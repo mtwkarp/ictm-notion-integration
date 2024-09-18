@@ -27,17 +27,23 @@ function onButtonClick() {
 
 function sendRequestToNotion() {
   setButtonLoadingState();
-  setButtonErrorState();
-  // fetch('', {
-  // method: 'POST',
-  //     headers: {
-  //         'Content-Type': 'application/json'
-  //     },
-  //     body: JSON.stringify({ key: 'value' })
-  // })
-  //     .then(response => response.json())
-  //     .then(data => console.log(data))
-  //     .catch(error => console.error('Error:', error));
+  fetch('https://ictm-notion-integration-server-833012ce9672.herokuapp.com/scheduleData', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      instructorId: getInstructorIdQuery()
+    })
+  })
+      .then(response => response.text())
+      .then(data => {
+        unsetButtonLoadingState()
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        setButtonErrorState()
+      });
 }
 
 function setButtonLoadingState() {
