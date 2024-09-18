@@ -1,3 +1,5 @@
+import './index.css'
+
 document.addEventListener("DOMContentLoaded", () => {
   if (checkForInstructorIdQuery()) {
     showUserIdFromQuery();
