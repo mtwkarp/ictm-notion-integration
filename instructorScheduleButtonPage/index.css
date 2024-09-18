@@ -1,0 +1,6 @@
+body {
+    -webkit-user-select: none; /* Disable text selection on iOS Safari */
+    -ms-user-select: none; /* Disable text selection on Internet Explorer */
+    user-select: none; /* Disable text selection on modern browsers */
+    -webkit-tap-highlight-color: transparent; /* Disable tap highlight on mobile */
+}

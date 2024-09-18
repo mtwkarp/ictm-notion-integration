@@ -7,7 +7,7 @@ dotenv.config();
 
 const notionClient = new Client({ auth: process.env.NOTION_KEY });
 const templatePath = path.join(__dirname, '../viewTemplates/scheduleButtonPageTemplate.html');
-const distPath = path.join(__dirname, '../instructorsPersonalButtons');
+const distPath = path.join(__dirname, '../instructorScheduleButtonPage');
 const variableName = '{USER_ID}';
 
 async function getNotionWorkspaceUserIds() {
