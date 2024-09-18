@@ -1,33 +1,66 @@
-import './index.css'
+document.addEventListener("DOMContentLoaded", onContentLoad);
 
-document.addEventListener("DOMContentLoaded", () => {
-  if (checkForInstructorIdQuery()) {
-    showUserIdFromQuery();
+function onContentLoad() {
+  if (!checkForInstructorIdQuery()) {
+    return;
   }
-  // const button = document.getElementById('custom-button');
-  //
-  // button.addEventListener('click', () => {
-  //     console.log('c7d2902a-3218-4d89-8ef5-801100358602')
-  //     onCustomButtonClick();
+
+  showUserIdFromQuery();
+  subscribeButton();
+}
+
+function subscribeButton() {
+  const btn = getButton();
+
+  btn.addEventListener("click", onButtonClick);
+}
+
+function unsubscribeButton() {
+  const btn = getButton();
+
+  btn.removeEventListener("click", onButtonClick);
+}
+
+function onButtonClick() {
+  sendRequestToNotion();
+}
+
+function sendRequestToNotion() {
+  setButtonLoadingState();
+  setButtonErrorState();
+  // fetch('', {
+  // method: 'POST',
+  //     headers: {
+  //         'Content-Type': 'application/json'
+  //     },
+  //     body: JSON.stringify({ key: 'value' })
   // })
-  //
-  // function onCustomButtonClick() {
-  //     sendRequestToNotion();
-  // }
-  //
-  // function sendRequestToNotion() {
-  //     // fetch('', {
-  //     // method: 'POST',
-  //     //     headers: {
-  //     //         'Content-Type': 'application/json'
-  //     //     },
-  //     //     body: JSON.stringify({ key: 'value' })
-  //     // })
-  //     //     .then(response => response.json())
-  //     //     .then(data => console.log(data))
-  //     //     .catch(error => console.error('Error:', error));
-  // }
-});
+  //     .then(response => response.json())
+  //     .then(data => console.log(data))
+  //     .catch(error => console.error('Error:', error));
+}
+
+function setButtonLoadingState() {
+  const btn = getButton();
+  btn.style.pointerEvents = "none";
+  btn.classList.add("loading");
+}
+
+function unsetButtonLoadingState() {
+  const btn = getButton();
+  btn.style.pointerEvents = "";
+  btn.classList.remove("loading");
+}
+
+function setButtonErrorState() {
+  const btn = getButton();
+
+  unsetButtonLoadingState();
+
+  btn.style.pointerEvents = "none";
+  btn.classList.add("negative");
+  btn.innerHTML = "Щось пішло не так, спробуйте перезапустити програму";
+}
 
 function getInstructorIdQuery() {
   const queryString = window.location.search;
