@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "webpack --mode=production"
+    "build:schedule-publish-button": "webpack --mode=production --config=webpack-schedule-publish-button.config.js",
+    "build:course-instructors-update-button": "webpack --mode=production --config=webpack-course-available-instructors-update-button.config"
   },
   "author": "",
   "license": "ISC",

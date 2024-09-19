@@ -2,26 +2,28 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const HtmlInlineCssWebpackPlugin = require('html-inline-css-webpack-plugin').default;
 
+const folderName = 'updateCoursesAvailableInstructorsButtonPage'
+
 module.exports = {
-    entry: './instructorScheduleButtonPage/index.js',
+    entry: `./${folderName}/index.js`,
     output: {
-        path: path.resolve(__dirname, 'dist'),
+        path: path.resolve(__dirname, `dist/${folderName}`),
         filename: 'bundle.js',
-        clean: true
+        clean: true,
     },
     module: {
         rules: [
             {
                 test: /\.css$/,
                 use: [
-                    'css-loader', // Translates CSS into CommonJS modules
+                    "css-loader", // Translates CSS into CommonJS modules
                 ],
             },
         ],
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: './instructorScheduleButtonPage/index.html',
+            template: `./${folderName}/index.html`,
         }),
         new HtmlInlineCssWebpackPlugin(),
     ],
