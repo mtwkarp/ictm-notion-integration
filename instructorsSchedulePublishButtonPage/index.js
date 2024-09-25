@@ -5,7 +5,6 @@ function onContentLoad() {
     return;
   }
 
-  showUserIdFromQuery();
   subscribeButton();
 }
 
@@ -97,12 +96,4 @@ function getButton() {
   return document.getElementById("schedule-btn");
 }
 
-function getErrorTextTag() {
-  return document.getElementById("error-text");
-}
 
-function showUserIdFromQuery() {
-  const p = getErrorTextTag();
-
-  p.innerHTML = `Insturctor id: ${getInstructorIdQuery()}`;
-}
